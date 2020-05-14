@@ -5,19 +5,11 @@ server:
 
 spring:
   datasource:
-    dynamic:
-      primary: db1
-      datasource:
-        db1:
-          url: jdbc:mysql://127.0.0.1:3306/lyscharlie?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
-          username: lyscharlie
-          password: 2110857
-          driver-class-name: com.mysql.cj.jdbc.Driver
-        db2:
-          url: jdbc:mysql://127.0.0.1:3306/my_test?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
-          username: lyscharlie
-          password: 2110857
-          driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/lyscharlie?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+    username: lyscharlie
+    password: 2110857
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
