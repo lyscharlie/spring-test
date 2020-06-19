@@ -6,6 +6,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.lyscharlie.biz.entity.AreaDO;
 
 @Repository
-public interface  AreaMapper extends BaseMapper<AreaDO> {
+public interface AreaMapper extends BaseMapper<AreaDO> {
 
 }
