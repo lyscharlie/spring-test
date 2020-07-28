@@ -19,7 +19,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.lyscharlie.common.annotation.EagleEye;
 import com.lyscharlie.common.annotation.RetryMethod;
 
@@ -145,7 +144,11 @@ public class AopTestAspect {
 
 		Object result = pjp.proceed();
 
-		log.info("请求返回：{}", JSONObject.toJSONString(result));
+		try {
+			log.info("请求返回：{}", result);
+		} catch (Exception e) {
+			log.error("AopTestAspect.doSomething3", e);
+		}
 
 		return result;
 	}
