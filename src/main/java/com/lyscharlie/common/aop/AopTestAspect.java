@@ -16,10 +16,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.lyscharlie.common.annotation.EagleEye;
 import com.lyscharlie.common.annotation.RetryMethod;
 
@@ -128,24 +125,28 @@ public class AopTestAspect {
 		log.info("请求连接：{}", request.getRequestURL().toString());
 		log.info("请求类型：{}", request.getMethod());
 		log.info("请求IP：{}", request.getRemoteAddr());
-		try {
-			boolean isFile = false;
-			for (Object arg : pjp.getArgs()) {
-				if (arg instanceof MultipartFile) {
-					isFile = true;
-					break;
-				}
-			}
-			if (!isFile) {
-				log.info("请求入参：{}", JSON.toJSONString(pjp.getArgs()));
-			}
-		} catch (Exception e) {
-			log.error("AopTestAspect.doSomething3", e);
-		}
+		// try {
+		// 	boolean isFile = false;
+		// 	for (Object arg : pjp.getArgs()) {
+		// 		if (arg instanceof MultipartFile) {
+		// 			isFile = true;
+		// 			break;
+		// 		}
+		// 	}
+		// 	if (!isFile) {
+		// 		log.info("请求入参：{}", JSON.toJSONString(pjp.getArgs()));
+		// 	}
+		// } catch (Exception e) {
+		// 	log.error("AopTestAspect.doSomething3", e);
+		// }
 
 		Object result = pjp.proceed();
 
-		log.info("请求返回：{}", JSONObject.toJSONString(result));
+		// try {
+		// 	log.info("请求返回：{}", JSONObject.toJSONString(result));
+		// } catch (Exception e) {
+		// 	log.error("AopTestAspect.doSomething3", e);
+		// }
 
 		return result;
 	}
