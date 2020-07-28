@@ -47,7 +47,7 @@ public class AreaController {
 			return resultList;
 		}
 
-		List<AreaDO> list = this.areaService.list(Wrappers.<AreaDO>lambdaQuery().eq(AreaDO::getParentId, provinceId));
+		List<AreaDO> list = this.areaService.list(Wrappers.<AreaDO>lambdaQuery().eq(AreaDO::getParentId, provinceId).eq(AreaDO::getAreaLevel, 3));
 		resultList = convertToVO(list);
 		return resultList;
 	}

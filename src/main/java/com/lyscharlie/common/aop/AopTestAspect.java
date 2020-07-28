@@ -127,6 +127,7 @@ public class AopTestAspect {
 		log.info("请求连接：{}", request.getRequestURL().toString());
 		log.info("请求类型：{}", request.getMethod());
 		log.info("请求IP：{}", request.getRemoteAddr());
+
 		try {
 			boolean isFile = false;
 			for (Object arg : pjp.getArgs()) {
@@ -144,11 +145,13 @@ public class AopTestAspect {
 
 		Object result = pjp.proceed();
 
+
 		try {
 			log.info("请求返回：{}", result);
 		} catch (Exception e) {
 			log.error("AopTestAspect.doSomething3", e);
 		}
+
 
 		return result;
 	}
