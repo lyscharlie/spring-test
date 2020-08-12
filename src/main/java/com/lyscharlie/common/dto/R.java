@@ -36,15 +36,18 @@ import lombok.ToString;
 @NoArgsConstructor
 public class R<T> implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -6982140165491792194L;
 
 	@ApiModelProperty(value = "状态码", required = true)
 	private int code;
+
 	@ApiModelProperty(value = "是否成功", required = true)
 	private boolean success;
+
 	@ApiModelProperty(value = "承载数据")
 	private T data;
+
 	@ApiModelProperty(value = "返回消息", required = true)
 	private String msg;
-	
+
 }

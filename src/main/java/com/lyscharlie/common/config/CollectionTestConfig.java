@@ -18,5 +18,5 @@ public class CollectionTestConfig {
 	private List<String> list;
 
 	private Map<String, String> map;
-
+	
 }
