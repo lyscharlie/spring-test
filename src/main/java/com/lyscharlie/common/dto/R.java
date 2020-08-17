@@ -32,22 +32,22 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@ApiModel(description = "返回信息")
+@ApiModel(value = "返回信息")
 @NoArgsConstructor
 public class R<T> implements Serializable {
 
 	private static final long serialVersionUID = -6982140165491792194L;
 
-	@ApiModelProperty(value = "状态码", required = true)
+	@ApiModelProperty(value = "状态码", required = true, example = "200")
 	private int code;
 
-	@ApiModelProperty(value = "是否成功", required = true)
+	@ApiModelProperty(value = "是否成功", required = true, example = "true")
 	private boolean success;
 
-	@ApiModelProperty(value = "承载数据")
+	@ApiModelProperty(value = "承载数据", example = "我是对象")
 	private T data;
 
-	@ApiModelProperty(value = "返回消息", required = true)
+	@ApiModelProperty(value = "返回消息", required = true, example = "操作成功")
 	private String msg;
 
 }
