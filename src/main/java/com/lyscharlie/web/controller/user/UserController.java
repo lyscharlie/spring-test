@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.lyscharlie.biz.entity.UserDO;
 import com.lyscharlie.biz.service.UserService;
+import com.lyscharlie.common.annotation.JwtIgnore;
 import com.lyscharlie.common.dto.R;
-import com.lyscharlie.common.utils.JwtUtils;
+import com.lyscharlie.common.utils.JwtTokenUtils;
 import com.lyscharlie.web.vo.UserVO;
 
 import io.swagger.annotations.Api;
@@ -46,6 +47,7 @@ public class UserController {
 		return resultList;
 	}
 
+	@JwtIgnore
 	@ApiOperation(value = "登录")
 	@ApiImplicitParams({
 			@ApiImplicitParam(name = "username", dataType = "string", defaultValue = ""),
@@ -76,7 +78,7 @@ public class UserController {
 		}
 
 		r.setSuccess(true);
-		r.setData(JwtUtils.getToken(user));
+		r.setData(JwtTokenUtils.getToken(user));
 		r.setMsg("登录成功");
 		return r;
 	}
