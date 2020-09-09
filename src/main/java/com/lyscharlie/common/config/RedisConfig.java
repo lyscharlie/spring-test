@@ -23,7 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class RedisConfig extends CachingConfigurerSupport {
 
 	/**
-	 * retemplate相关配置
+	 * redisTemplate相关配置
 	 *
 	 * @param factory
 	 * @return
@@ -35,7 +35,7 @@ public class RedisConfig extends CachingConfigurerSupport {
 		// 配置连接工厂
 		template.setConnectionFactory(factory);
 
-		//使用Jackson2JsonRedisSerializer来序列化和反序列化redis的value值（默认使用JDK的序列化方式）
+		// 使用Jackson2JsonRedisSerializer来序列化和反序列化redis的value值（默认使用JDK的序列化方式）
 		Jackson2JsonRedisSerializer jacksonSeial = new Jackson2JsonRedisSerializer(Object.class);
 
 		ObjectMapper om = new ObjectMapper();
@@ -50,10 +50,14 @@ public class RedisConfig extends CachingConfigurerSupport {
 		//使用StringRedisSerializer来序列化和反序列化redis的key值
 		template.setKeySerializer(new StringRedisSerializer());
 
-		// 设置hash key 和value序列化模式
+		// 设置hash key和value序列化模式
 		template.setHashKeySerializer(new StringRedisSerializer());
 		template.setHashValueSerializer(jacksonSeial);
 		template.afterPropertiesSet();
+
+		// 开启事务
+		template.setEnableTransactionSupport(true);
+		template.setConnectionFactory(factory);
 
 		return template;
 	}
