@@ -89,15 +89,15 @@ public class SwaggerConfig {
 	}
 
 	private List<Parameter> headerAuthorization() {
-		ParameterBuilder tokenPar = new ParameterBuilder();
-		List<Parameter> pars = new ArrayList<>();
-		tokenPar.name("Authorization")
+		ParameterBuilder parameterBuilder = new ParameterBuilder();
+		List<Parameter> parameters = new ArrayList<>();
+		parameterBuilder.name("Authorization")
 				.description("令牌")
 				.modelRef(new ModelRef("string"))
 				.parameterType("header")
 				.required(false)
 				.build();
-		pars.add(tokenPar.build());
-		return pars;
+		parameters.add(parameterBuilder.build());
+		return parameters;
 	}
 }

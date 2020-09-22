@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
-@Api(value = "redis")
+@Api(value = "/redis", tags = "redis")
 @RestController
 @RequestMapping(value = "redis")
 @Slf4j

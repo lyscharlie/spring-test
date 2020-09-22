@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
-@Api(value = "area")
+@Api(value = "/area", tags = "地区")
 @RestController
 @RequestMapping(value = "area")
 @Slf4j
